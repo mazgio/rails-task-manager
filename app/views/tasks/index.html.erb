@@ -1,0 +1,15 @@
+<h1 style="text-align:center">My Tasks</h1>
+
+<% @tasks.each do|task| %>
+<div class="card my-4">
+<h3><%= task.title  %></h3>
+<p><%= task.details %></p>
+<p><%= check_box_tag(task.completed ) %></p> 
+<%= link_to "Delete",
+task_path(task),
+data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+</div>
+<% end %>
+
+
